@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LTMA Engenharia e Design Ltda - Expert nonresidential construction and engineering in Mogi das Cruzes, SP. Led by Tatiane Palmeira Do Amaral.">
+    <title>LTMA | Engenharia e Design</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. VARIABLES & RESET
+           ========================================= */
+        :root {
+            --primary-green: #1B4D3E;       /* Forest Green - Professional & Stable */
+            --accent-lime: #8FBC8F;         /* Subtle contrast */
+            --dark-grey: #2D3436;           /* Structure Grey */
+            --concrete-light: #F5F6FA;      /* Light background */
+            --white: #ffffff;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'PT Serif', serif;
+            color: var(--dark-grey);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Barlow', sans-serif;
+            text-transform: uppercase;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+        }
+
+        a { text-decoration: none; transition: 0.3s; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* =========================================
+           2. UTILITIES
+           ========================================= */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: left;
+            margin-bottom: 60px;
+            border-left: 6px solid var(--primary-green);
+            padding-left: 25px;
+        }
+
+        .section-header span {
+            display: block;
+            color: var(--accent-lime);
+            font-family: 'Barlow', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--dark-grey);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: var(--primary-green);
+            color: var(--white);
+            font-family: 'Barlow', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-green);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-green);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-green);
+        }
+
+        /* =========================================
+           3. HEADER
+           ========================================= */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--dark-grey);
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--primary-green);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            font-family: 'Barlow', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: var(--dark-grey);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-green);
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(27, 77, 62, 0.85), rgba(27, 77, 62, 0.6)),
+                        url('https://images.unsplash.com/photo-1486325212027-8081e485255e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80'); /* Commercial Building */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            margin-top: 90px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: var(--white);
+            margin-bottom: 25px;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            color: #eee;
+            max-width: 650px;
+        }
+
+        /* =========================================
+           5. ABOUT US
+           ========================================= */
+        .about {
+            background-color: var(--white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 25px;
+        }
+
+        .about-text p {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .principal-card {
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--concrete-light);
+            border-left: 4px solid var(--primary-green);
+            display: inline-block;
+        }
+
+        .principal-card h4 {
+            margin-bottom: 5px;
+            font-size: 1.1rem;
+            color: var(--dark-grey);
+        }
+
+        .principal-card p {
+            font-size: 0.9rem;
+            margin: 0;
+            font-family: 'Barlow', sans-serif;
+            text-transform: uppercase;
+            color: var(--primary-green);
+        }
+
+        .about-img {
+            position: relative;
+        }
+
+        .about-img img {
+            border-radius: 4px;
+            box-shadow: -20px 20px 0 var(--accent-lime);
+        }
+
+        /* =========================================
+           6. SERVICES
+           ========================================= */
+        .services {
+            background-color: var(--concrete-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 50px 30px;
+            transition: 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .service-card:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* =========================================
+           7. ADVANTAGES / WHY US
+           ========================================= */
+        .advantages {
+            background-color: var(--dark-grey);
+            color: var(--white);
+        }
+
+        .advantages .section-header h2 { color: var(--white); }
+        .advantages .section-header { border-left-color: var(--white); }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .adv-item {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+
+        .adv-item h4 {
+            color: var(--accent-lime);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .adv-item p {
+            color: #ccc;
+            font-weight: 300;
+        }
+
+        /* =========================================
+           8. PROCESS
+           ========================================= */
+        .process {
+            background-color: var(--white);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 10%;
+            right: 10%;
+            height: 2px;
+            background-color: var(--concrete-light);
+            z-index: 0;
+        }
+
+        .step {
+            position: relative;
+            z-index: 1;
+            background: var(--white);
+            padding: 0 15px;
+            width: 30%;
+            text-align: center;
+        }
+
+        .step-num {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Barlow', sans-serif;
+            font-weight: 800;
+            font-size: 1.2rem;
+            margin: 0 auto 20px;
+        }
+
+        /* =========================================
+           9. CONTACT FORM
+           ========================================= */
+        .contact {
+            background-color: var(--concrete-light);
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            background: var(--white);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+        }
+
+        .contact-info {
+            background-color: var(--primary-green);
+            color: var(--white);
+            padding: 60px;
+        }
+
+        .contact-info h3 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item label {
+            display: block;
+            color: var(--accent-lime);
+            font-family: 'Barlow', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-size: 1.1rem;
+        }
+
+        .contact-form {
+            padding: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            background: #f9f9f9;
+            font-family: 'PT Serif', serif;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-green);
+            background: #fff;
+        }
+
+        textarea.form-control {
+            height: 150px;
+            resize: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            border: none;
+        }
+
+        /* =========================================
+           10. FOOTER
+           ========================================= */
+        footer {
+            background-color: var(--dark-grey);
+            color: #777;
+            padding: 60px 0 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .footer-brand {
+            font-family: 'Barlow', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 3rem; }
+            .about-grid, .services-grid, .adv-grid, .contact-wrapper { grid-template-columns: 1fr; }
+            .process-steps { flex-direction: column; gap: 40px; }
+            .process-steps::before { display: none; }
+            .step { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">LTMA <span>ENGENHARIA</span></div>
+            <nav class="nav-menu">
+                <a href="#about">Company</a>
+                <a href="#services">Services</a>
+                <a href="#process">Process</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Engineering the Future Structure of Mogi das Cruzes.</h1>
+            <p>LTMA Engenharia e Design Ltda provides comprehensive nonresidential construction solutions, merging robust engineering with functional design.</p>
+            <a href="#contact" class="btn btn-outline">Start Your Project</a>
+        </div>
+    </section>
+
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <div class="section-header">
+                        <span>Who We Are</span>
+                        <h2>Precision in Construction</h2>
+                    </div>
+                    <p>Located in the strategic hub of Mogi das Cruzes, São Paulo, LTMA Engenharia e Design Ltda is a forward-thinking construction firm dedicated to the nonresidential sector. We specialize in creating industrial and commercial spaces that stand the test of time.</p>
+                    <p>Under the leadership of Tatiane Palmeira Do Amaral, our firm bridges the traditional gap between structural execution and architectural design. We believe that industrial buildings should not only be functional but also intelligently designed to maximize efficiency.</p>
+                    <p>From foundational work to the final structural finishes, LTMA is committed to safety, regulatory compliance, and engineering excellence in the São Paulo region.</p>
+                    
+                    <div class="principal-card">
+                        <h4>Tatiane Palmeira Do Amaral</h4>
+                        <p>Key Principal & Director</p>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Construction Planning">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span>Expertise</span>
+                <h2>What We Build</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#9874;</div> <h3>Nonresidential Construction</h3>
+                    <p>Execution of commercial buildings, retail spaces, and office complexes. We manage the entire build lifecycle, ensuring structural integrity and adherence to timelines in Mogi das Cruzes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#127981;</div> <h3>Industrial Facilities</h3>
+                    <p>Specialized construction for manufacturing plants and warehouses. Our team understands the heavy-duty requirements of industrial zones and logistics centers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">&#128221;</div> <h3>Engineering Design</h3>
+                    <p>Technical planning and architectural integration. We produce detailed blueprints that align structural needs with operational workflow and aesthetic requirements.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="advantages section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span>Why Choose LTMA</span>
+                <h2>The LTMA Standard</h2>
+            </div>
+            <div class="adv-grid">
+                <div class="adv-item">
+                    <h4>Strategic Leadership</h4>
+                    <p>Guided by Tatiane Palmeira Do Amaral, we bring a distinct perspective to construction management, emphasizing clear communication and meticulous attention to detail.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Local Compliance</h4>
+                    <p>Operating out of Mogi das Cruzes, we have deep knowledge of São Paulo state building codes and zoning regulations, ensuring a smooth approval process.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Design-Build Integration</h4>
+                    <p>By combining "Engenharia" (Engineering) and "Design" under one roof, we eliminate conflicts between architects and builders, streamlining your project delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process section-padding">
+        <div class="container">
+            <div class="section-header">
+                <span>Workflow</span>
+                <h2>Our Approach</h2>
+            </div>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div>
+                    <h3>Feasibility & Design</h3>
+                    <p>We assess the site in Mogi das Cruzes and develop initial technical concepts that align with your operational goals.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div>
+                    <h3>Technical Engineering</h3>
+                    <p>Our team creates comprehensive structural plans and secures necessary permits for construction start.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div>
+                    <h3>Construction & Handover</h3>
+                    <p>We execute the build with rigorous safety oversight, delivering the completed facility ready for use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Build With Us</h3>
+                    <p style="color: #e0e0e0; margin-bottom: 30px;">Ready to start your nonresidential project in São Paulo? Contact LTMA for a professional consultation.</p>
+                    
+                    <div class="info-item">
+                        <label>Headquarters</label>
+                        <p>Mogi das Cruzes, São Paulo<br>Brazil</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Email</label>
+                        <p>info@ltmaengenhariaedesign.info</p>
+                    </div>
+                    <div class="info-item">
+                        <label>Principal</label>
+                        <p>Tatiane Palmeira Do Amaral</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Your Name / Company" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Project Type (e.g. Warehouse, Office)">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tell us about your project needs..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-submit">Send Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="font-size: 1.5rem; color: #fff; margin-bottom: 15px;">LTMA <span>ENGENHARIA</span></div>
+            <p>&copy; 2023 LTMA Engenharia e Design Ltda. All Rights Reserved.</p>
+            <p style="margin-top: 10px; opacity: 0.5;">Mogi das Cruzes, SP | info@ltmaengenhariaedesign.info</p>
+        </div>
+    </footer>
+
+</body>
+</html>
